@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./src/css/style.css">
+    <title>Juego de Hundir la Flota</title>
+</head>
+
+<body>
+    <header>
+        <h1>Juego de Hundir la Flota</h1>
+    </header>
+    <main>
+        <div class='info'>
+            <p>Puntuación: <span id="puntuacion">0</span></p>
+            <p>Cantidad de Agua: <span id="agua"></span></p>
+        </div>
+        <section id="board"></section>
+        <form onsubmit="event.preventDefault(); disparar();">
+            <div class="form-group">
+                <label for="x">Columna:</label>
+                <input type="number" name="x" id="x">
+            </div>
+            <div class="form-group">
+                <label for="y">Fila:</label>
+                <input type="number" name="y" id="y">
+            </div>
+            <input id="botonDisparar" type="submit" value="Disparar">
+        </form>
+        <button class="juego-nuevo" onclick="newGame()">Nuevo Juego</button>
+    </main>
+    <div class="container-modal">
+        <article class="modal">
+            <!-- <i class="modal-close">x</i> -->
+            <h2 class="modal-title">Has fallado!</h2>
+            <p class="modal-text">¿Deseas volver a jugar otra partida?</p>
+            <div class="modal-buttons">
+                <button id="aceptar" onclick="closeAlert();newGame();" class="modal-button">Aceptar</button>
+                <button id="cancelar" onclick="closeAlert(); disableLayout();" class="modal-button">Cancelar</button>
+            </div>
+        </article>
+    </div>
+
+    <script src="src/js/index.js"></script>
+</body>
+
+</html>
